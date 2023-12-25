@@ -11,12 +11,16 @@ const Home = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
   const onPressCart = () => {
     navigation.navigate('Cart');
   };
-  // const onPressProfile = () => {
-  //   navigation.navigate('Profile');
-  // };
+  const onPressFavorite = () => {
+    navigation.navigate('Favorite');
+  };
+  const onPressProfile = () => {
+    navigation.navigate('Profile');
+  };
 
   const handleCategoryPress = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -149,13 +153,25 @@ const Home = ({ navigation }) => {
         </ScrollView>
       </View>
 
-      {/* <View style={styles.ContrainerBtoom}>
+      <View style={styles.ContrainerBtoom}>
 
-        <View style={styles.IconCart}>
-          <Feather onPress={onPressCart} style={styles.Cart} name="shopping-cart" size={27} color="black" />
+        <View style={styles.IconHome}>
+          <Octicons style={styles.home} component={Home} name="home" size={28} color="black" />
         </View>
 
-      </View> */}
+        <View style={styles.IconC}>
+          <Feather style={styles.cartmenu} onPress={onPressCart} name="shopping-cart" size={28} color="black" />
+        </View>
+
+        <View style={styles.IconC}>
+          <AntDesign style={styles.favourite} onPress={onPressFavorite} name="hearto" size={28} color="black" />
+        </View>
+
+        <View style={styles.IconProfile}>
+          <FontAwesome style={styles.profile} onPress={onPressProfile} name="user-o" size={28} color="black" />
+        </View>
+
+      </View>
 
     </View>
 
@@ -174,11 +190,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  // ContrainerBtoom: {
-  //   flex: 1.2,
-  //   flexDirection: "row",
-  //   backgroundColor: "#fff",
-  // },
+
 
   IconSearch: {
     flex: 1,
@@ -204,8 +216,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     flexDirection: 'row',
   },
+  ///////////////////
+  ContrainerBtoom: {
+    flex: 1.2,
+    flexDirection: "row",
+    backgroundColor: "#fff",
+  },
+  IconHome: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: 15,
+  },
+  IconC: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: 15,
+  },
+  IconProfile: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: 15,
+  },
 
-
+  /////////////////////
   IconFlex: {
     flex: 1,
     alignItems: "center",

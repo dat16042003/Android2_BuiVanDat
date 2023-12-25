@@ -23,37 +23,12 @@ const Favorite = () => {
 
       <View style={styles.ContainerMid}>
         <View style={styles.ContainerItem}>
-          <View style={styles.ContainerMidImage}>
-            <Image
-              style={styles.maskGroupIcon4}
-              contentFit="cover"
-              source={require("../assets/Favorite/mask-group4.png")}
-            />
-          </View>
-          <View style={styles.ContainerMidText}>
-            <Text style={styles.coffeeTable}>
-              Coffee Table
-            </Text>
-            <Text style={styles.text4}>$ 50.00</Text>
-          </View>
-          <View style={styles.ContainerMidBtn}>
-            <Image
-              style={[styles.shapeIcon, styles.shapeIconLayout]}
-              contentFit="cover"
-              source={require("../assets/Favorite/shape.png")}
-            />
-            <View style={[styles.rectangleParent, styles.groupParentLayout, styles.stytop]}>
-              <View style={[styles.groupChild, styles.groupParentLayout]} />
-              <Image
-                style={styles.iconLayout}
-                contentFit="cover"
-                source={require("../assets/Favorite/shopping-bag-icon.png")}
-              />
-            </View>
-          </View>
+
+
+
         </View>
       </View>
-      <View style={styles.ContainerBotom}></View>
+
 
     </View>
   );
@@ -71,7 +46,7 @@ const styles = StyleSheet.create({
   },
   ContainerMid: {
     flex: 8,
-    backgroundColor: "#909876",
+    //backgroundColor: "#909876",
     padding: 10,
   },
   ContainerItem: {

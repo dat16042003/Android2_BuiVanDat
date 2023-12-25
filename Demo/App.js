@@ -8,12 +8,13 @@ import Boarding from "./screens/Boarding";
 import LogIn from "./screens/LogIn";
 import SignUp from "./screens/SignUp";
 import Home from "./screens/Home";
+
 import ProductDetail from "./screens/ProductDetail";
 import Success from "./screens/Success";
 import Favorite from "./screens/Favorite";
 import Profile from "./screens/Profile";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AntDesign, Feather, Octicons, FontAwesome } from '@expo/vector-icons';
+//import { AntDesign, Feather , Octicons, FontAwesome } from '@expo/vector-icons';
 import { StyleSheet } from "react-native";
 import Cart from "./screens/Cart";
 import { CartProvider } from "./screens/CartContext";
@@ -44,81 +45,83 @@ const App = () => {
   if (!fontsLoaded && !error) {
     return null;
   }
-  function Navigation() {
-    return (
-      <Tab.Navigator
-        tabBarOption={{
-          style: {
-            // position:"absolute",
+  // function Navigation() {
+  //   return (
+  //     <Tab.Navigator
 
-          }
-        }}>
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
-            tabBarLabel: "",
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Octicons name="home" size={26} color="#9AFEFF" />
-              ) : (
-                <Octicons name="home" size={26} color="black" />
-              ),
-          }}
-        />
-        <Tab.Screen
-          name="Cart"
-          component={Cart}
-          options={{
-            tabBarLabel: "",
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <AntDesign name="hearto" size={24} color="#9AFEFF" />
-              ) : (
-                <AntDesign name="hearto" size={24} color="black" />
-              ),
-          }}
-        />
+  //       tabBarOption={{
+  //         style: {
+  //           // position:"absolute",
 
-        <Tab.Screen
-          name="Bell"
-          component={Cart}
-          options={{
-            tabBarLabel: "",
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Feather name="shopping-cart" size={24} color="#9AFEFF" />
-              ) : (
-                <Feather name="shopping-cart" size={24} color="black" />
-              ),
-          }}
-        />
+  //         }
+  //       }}>
+  //       <Tab.Screen
+  //         name="Home"
+  //         component={Home}
+  //         style={styles.IconView}
+  //         options={{
+  //           tabBarLabel: "",
+  //           headerShown: false,
+  //           tabBarIcon: ({ focused }) =>
+  //             focused ? (
+  //               <Octicons name="home" size={26} color="#9AFEFF" />
+  //             ) : (
+  //               <Octicons name="home" size={26} color="black" />
+  //             ),
+  //         }}
+  //       />
+  //       <Tab.Screen
+  //         name="Cart"
+  //         component={Cart}
+  //         options={{
+  //           tabBarLabel: "",
+  //           headerShown: false,
+  //           tabBarIcon: ({ focused }) =>
+  //             focused ? (
+  //               <AntDesign name="hearto" size={24} color="#9AFEFF" />
+  //             ) : (
+  //               <AntDesign name="hearto" size={24} color="black" />
+  //             ),
+  //         }}
+  //       />
 
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarLabel: "",
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <FontAwesome name="user-o" size={24} color="#9AFEFF" />
-              ) : (
-                <FontAwesome name="user-o" size={24} color="black" />
-              ),
-          }}
-        />
-      </Tab.Navigator>
-    );
-  }
+  //       <Tab.Screen
+  //         name="Bell"
+  //         component={Cart}
+  //         options={{
+  //           tabBarLabel: "",
+  //           headerShown: false,
+  //           tabBarIcon: ({ focused }) =>
+  //             focused ? (
+  //               <Feather name="shopping-cart" size={24} color="#9AFEFF" />
+  //             ) : (
+  //               <Feather name="shopping-cart" size={24} color="black" />
+  //             ),
+  //         }}
+  //       />
+
+  //       <Tab.Screen
+  //         name="Profile"
+  //         component={Profile}
+  //         options={{
+  //           tabBarLabel: "",
+  //           headerShown: false,
+  //           tabBarIcon: ({ focused }) =>
+  //             focused ? (
+  //               <FontAwesome name="user-o" size={24} color="#9AFEFF" />
+  //             ) : (
+  //               <FontAwesome name="user-o" size={24} color="black" />
+  //             ),
+  //         }}
+  //       />
+  //     </Tab.Navigator>
+  //   );
+  // }
   return (
     <>
       <CartProvider>
         <NavigationContainer>
-          <Stack.Navigator  initialRouteName="FirstPage" >
+          <Stack.Navigator initialRouteName="FirstPage" >
             <Stack.Screen
               name="Boarding"
               component={Boarding}
@@ -137,11 +140,11 @@ const App = () => {
               options={{ headerShown: false }}
             />
 
-            <Stack.Screen
+            {/* <Stack.Screen
               name="Main"
               component={Navigation}
               options={{ headerShown: false }}
-            />
+            />  */}
 
             <Stack.Screen
               name="Home"
@@ -177,6 +180,7 @@ const App = () => {
               component={Success}
               options={{ headerShown: false }}
             />
+
           </Stack.Navigator>
         </NavigationContainer>
       </CartProvider>

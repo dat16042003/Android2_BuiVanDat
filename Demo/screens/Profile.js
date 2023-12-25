@@ -24,7 +24,7 @@ const Profile = () => {
       <Image
         style={styles.profileChild}
         contentFit="cover"
-        source={require("../assets/Profile/huan-rose-tin-dan-ba-chi-co-an-dau-buoi-an-cut.jpg")}//ellipse-30.png
+        source={require("../assets/Profile/dat.jpg")}//ellipse-30.png
       />
       <Text style={[styles.brunoPham, styles.myOrdersTypo]}>Bui Van Dat</Text>
       <Text style={[styles.bruno203gmailcom, styles.alreadyHave10Typo]}>
@@ -397,7 +397,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   myCart: {
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: "Merriweather-Bold",
     marginLeft: 24,
     color: "#303030",
