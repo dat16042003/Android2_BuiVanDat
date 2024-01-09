@@ -5,6 +5,7 @@ import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { GET_IMG } from "../api/apiService";
 import InputSpinner from "react-native-input-spinner";
 import { useCart } from './CartContext';
+
 const ProductDetail = ({ navigation, route }) => {
   const { product } = route.params;
   const { addToCart, findCartItemInCart, updateCartItemQuantity } = useCart();

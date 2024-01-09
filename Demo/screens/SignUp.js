@@ -8,8 +8,8 @@ const SignUp = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [showPassword, setShowPassword] = React.useState(false);
-  const [confirmpassword, setConfirmPassword] = React.useState('');
-  const [showConfimPassword, setShowConfimPassword] = React.useState(false);
+  // const [confirmpassword, setConfirmPassword] = React.useState('');
+  // const [showConfimPassword, setShowConfimPassword] = React.useState(false);
 
   const handleLogin = async () => {
     if (!fullname || !password) {
@@ -17,7 +17,7 @@ const SignUp = ({ navigation }) => {
       return;
     }
     // Địa chỉ URL của API
-    const apiUrl = 'http://10.17.0.50:8080/api/users';
+    const apiUrl = 'http://192.168.137.86:8080/api/users';
 
     const data = {
       fullname: fullname,
@@ -111,7 +111,7 @@ const SignUp = ({ navigation }) => {
               <View style={styles.NhapThongTinDuonggach}></View>
             </View>
 
-            <View style={styles.NhapThongTinConfimPassword}>
+            {/* <View style={styles.NhapThongTinConfimPassword}>
               <Text style={styles.NhapThongTinNhap}>Import Confirm Password: </Text>
               <View style={styles.NhapThongTinNhapMat}>
                 <TextInput
@@ -126,7 +126,7 @@ const SignUp = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
               <View style={styles.NhapThongTinDuonggach}></View>
-            </View>
+            </View> */}
 
           </View>
 

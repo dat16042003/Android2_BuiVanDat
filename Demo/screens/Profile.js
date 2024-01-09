@@ -1,17 +1,24 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
+import { AntDesign } from '@expo/vector-icons';
 
-const Profile = () => {
+const Profile =  ({ navigation}) => {
+  const onPressHome = () => {
+    navigation.navigate("Home");
+  };
   return (
+
     <View style={styles.profile}>
 
       <View style={[styles.headerBar, styles.headerBarFlexBox]}>
-        <Image
+        {/* <Image
           style={[styles.risearch2LineIcon, styles.headerBarChildLayout]}
           contentFit="cover"
           source={require("../assets/Profile/risearch2line.png")}
-        />
+        /> */}
+      <AntDesign onPress={onPressHome} style={styles.Search} name="left" size={27} color="black" />
+
         <Text style={styles.myCart}>Profile</Text>
         <Image
           style={[styles.headerBarChild, styles.headerBarChildLayout]}

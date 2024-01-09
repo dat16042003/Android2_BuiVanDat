@@ -2,14 +2,20 @@ import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { AntDesign, Feather, } from '@expo/vector-icons';
-const Favorite = () => {
+const Favorite = ({ navigation }) => {
+  const onPressHome = () => {
+    navigation.navigate("Home");
+  };
+  const onPressCart = () => {
+    navigation.navigate('Cart');
+  };
   return (
-
     <View style={styles.Container}>
-
       <View style={styles.ContainerTop}>
         <View style={styles.IconSearch}>
-          <AntDesign style={styles.Search} name="search1" size={27} color="black" />
+          {/* <AntDesign style={styles.Search} name="search1" size={27} color="black" /> */}
+          <AntDesign onPress={onPressHome} style={styles.Search} name="left" size={27} color="black" />
+
         </View>
         <View style={styles.textMake}>
           <Text style={styles.makeHomeBeautifulContainer}>
@@ -17,18 +23,16 @@ const Favorite = () => {
           </Text>
         </View>
         <View style={styles.IconCart}>
-          <Feather style={styles.Cart} name="shopping-cart" size={27} color="black" />
+          {/* <Feather style={styles.Cart} name="shopping-cart" size={27} color="black" /> */}
+          <Feather style={styles.Cart} onPress={onPressCart} name="shopping-cart" size={28} color="black" />
         </View>
       </View>
 
       <View style={styles.ContainerMid}>
         <View style={styles.ContainerItem}>
 
-
-
         </View>
       </View>
-
 
     </View>
   );

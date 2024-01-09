@@ -11,7 +11,7 @@ const LogIn = ({ navigation }) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleLogin = () => {
-    axios.get('http://10.17.0.50:8080/api/users')
+    axios.get('http://192.168.137.86:8080/api/users')
       .then(response => {
 
         const data = response.data;
