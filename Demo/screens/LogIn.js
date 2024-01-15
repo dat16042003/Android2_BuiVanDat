@@ -11,7 +11,7 @@ const LogIn = ({ navigation }) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleLogin = () => {
-    axios.get('http://192.168.137.86:8080/api/users')
+    axios.get('http://192.168.50.76:8080/api/users')
       .then(response => {
 
         const data = response.data;
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   NhapThongTinNhap: {
     fontSize: 17,
     fontFamily: "NunitoSans12pt-Regular",
-    color: "#909090",
+    color: "#000E2A",
     textAlign: "left",
   },
   NhapThongTinNhapMat: {

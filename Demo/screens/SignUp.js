@@ -17,7 +17,7 @@ const SignUp = ({ navigation }) => {
       return;
     }
     // Địa chỉ URL của API
-    const apiUrl = 'http://192.168.137.86:8080/api/users';
+    const apiUrl = 'http://192.168.50.76:8080/api/users';
 
     const data = {
       fullname: fullname,

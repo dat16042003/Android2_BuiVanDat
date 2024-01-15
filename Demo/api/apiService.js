@@ -1,5 +1,5 @@
 import axios from "axios";
-let API_URL = "http://192.168.137.86:8080/api";
+let API_URL = "http://192.168.50.76:8080/api";
 function callApi(endpoint, method = "GET", body) {
     return axios({
         method,

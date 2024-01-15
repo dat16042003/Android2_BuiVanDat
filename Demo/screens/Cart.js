@@ -1,16 +1,22 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
+import { GET_IMG } from "../api/apiService";
 import { AntDesign, FontAwesome5, } from '@expo/vector-icons';
 import { useCart } from './CartContext';
-import { GET_IMG } from "../api/apiService";
+
 import InputSpinner from "react-native-input-spinner";
 const Cart = ({ navigation }) => {
 
   const { cart, removeFromCart, updateCartItemQuantity } = useCart();
-  const onPressSuccess = () => {
-    navigation.navigate("Success");
+  // const onPressSuccess = () => {
+  //   navigation.navigate("Success");
+  // };
+
+  const onPressPayment = () => {
+    navigation.navigate("PaymentScreen"); // Navigate to the PaymentMethod screen
   };
+
   const handleRemoveItem = (itemId) => {
     removeFromCart(itemId); // Use removeFromCart here
   };
@@ -51,6 +57,7 @@ const Cart = ({ navigation }) => {
               </View>
 
               <View style={styles.ContainerMidText}>
+
                 <View style={styles.ContainerMidText1}>
                   <Text style={styles.coffeeTable}>
                     {item.title}
@@ -74,7 +81,6 @@ const Cart = ({ navigation }) => {
                   onChange={(value) => handleQuantityChange(item.id, value)}
                 />
 
-
               </View>
 
               <View style={styles.ContainerMidBtn}>
@@ -82,9 +88,7 @@ const Cart = ({ navigation }) => {
               </View>
 
             </View>
-
             <View style={styles.Containerduonggach}></View>
-
           </View>
         ))}
 
@@ -97,7 +101,7 @@ const Cart = ({ navigation }) => {
       </View>
 
       <View style={styles.ContainerBotom}>
-        <Text style={styles.ContainerBotomtxt} onPress={onPressSuccess}> CART CHECKOUT </Text>
+        <Text style={styles.ContainerBotomtxt} onPress={onPressPayment}> PAYMENT </Text>
       </View>
 
     </View>
@@ -105,104 +109,74 @@ const Cart = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  innerplus: {
-    marginBottom: 10,
-  },
   Container: {
     flex: 1,
-    marginTop: 33,
+    paddingTop: 30,
+    backgroundColor: '#fff',
   },
   ContainerTop: {
-    flex: 0.2,
     flexDirection: "row",
-    backgroundColor: "#DDDDDD",
+    //backgroundColor: "#DDDDDD",
+    alignItems: "center",
+    paddingVertical: 10,
   },
+  //-----------------------------------------------------------
   ContainerMid: {
-    flex: 2,
-    //bottom: 0,
-    justifyContent: 'space-between',
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 50,
+    flex: 1,
+    padding: 5,
   },
+
+  ContainerItem1: {
+    //marginBottom: 15,
+    marginTop: 10,
+  },
+
+  ContainerItem: {
+    flexDirection: "row",
+    //backgroundColor: "#DDDDDD",
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+
+  //-------------------------------------------------
   TongTien: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'white', // Set background color if needed
-    borderTopWidth: 1, // Add a border if needed
+    backgroundColor: 'white',
+    borderTopWidth: 1,
     borderColor: '#ccc',
     padding: 10,
   },
   TongTienTotal: {
-    flex: 1,
     flexDirection: "row",
     alignSelf: "flex-end",
   },
   total: {
-    fontSize: 23,
+    fontSize: 18,
     fontWeight: "700",
-    marginLeft: 20,
     fontFamily: "NunitoSans12pt-Bold",
     color: "#808080",
   },
   text1: {
-    fontSize: 23,
+    fontSize: 18,
     fontWeight: "700",
     marginLeft: 6,
     fontFamily: "NunitoSans12pt-Bold",
     color: "#303030",
   },
-  ContainerItem: {
-    width: "100%",
-    height: 100,
-    borderRadius: 10,
-    flexDirection: "row",
-    backgroundColor: "#DDDDDD",
-  },
-  ContainerItem1: {
-    flex: 15,
-    marginBottom: 15,
-  },
+
   ContainerMidImage: {
     flex: 1,
   },
   ContainerMidText: {
     flex: 2,
+    marginLeft: 10,
+    justifyContent: "space-between",
   },
   ContainerMidText1: {
     flex: 2,
-  },
-  ContainerMidTextIcon: {
-    flex: 1,
-    width: 120,
-    flexDirection: "row",
-  },
-  ContainerMidTextIconCong: {
-    flex: 1,
-    backgroundColor: "#CCCCCC",
-    alignItems: "center",
-    borderRadius: 8,
-  },
-  NutCongTru: {
-    marginVertical: 6,
-  },
-  ContainerMidTextIconSo: {
-    flex: 1.3,
-    alignItems: "center",
-    marginVertical: 4,
-  },
-  SoLuong: {
-    fontSize: 15,
-    fontFamily: "NunitoSans12pt-Bold",
-  },
-  ContainerMidTextIconTru: {
-    flex: 1,
-    backgroundColor: "#CCCCCC",
-    alignItems: "center",
-    borderRadius: 8,
   },
   ContainerMidBtn: {
     flex: 0.4,
@@ -216,20 +190,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#CCCCCC",
   },
   maskGroupIcon4: {
+    borderRadius: 10,
     height: 100,
     width: 100,
   },
   ContainerBotom: {
     backgroundColor: "#4B575B",
     height: 80,
-    marginHorizontal: 0, // Đặt giá trị marginHorizontal thành 0 để tràn ra hai bên
-    marginBottom: 10,
-    shadowOpacity: 0.7,
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
     alignItems: "center",
+    justifyContent: "center",
+    paddingBottom :7,
   },
   ContainerBotomtxt: {
     fontSize: 26,
@@ -239,25 +209,30 @@ const styles = StyleSheet.create({
   },
   IconSearch: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom:5,
   },
   textMake: {
     flex: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
   IconCart: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   makeHomeBeautifulContainer: {
     textAlign: "center",
-    marginTop: 9,
+    marginTop: 10,
+    paddingBottom:5,
   },
   Search: {
     marginHorizontal: 15,
     marginTop: 12,
   },
-  Cart: {
-    marginHorizontal: 15,
-    marginVertical: 15,
-  },
+ 
   beautiful: {
     fontFamily: "Gelasio-Bold",
     color: "#242424",
@@ -275,8 +250,12 @@ const styles = StyleSheet.create({
     color: "#303030",
     fontWeight: "700",
     fontSize: 16,
-    fontFamily: "NunitoSans12pt-Bold",
+    fontFamily: "NunitoSans12pt-SemiBold",
   },
+  innerplus: {
+    marginBottom: 10,
+  },
+   
 });
 
 export default Cart;

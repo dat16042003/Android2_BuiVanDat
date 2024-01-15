@@ -9,6 +9,7 @@ import LogIn from "./screens/LogIn";
 import SignUp from "./screens/SignUp";
 import Home from "./screens/Home";
 
+import PaymentScreen from "./screens/PaymentScreen";
 import ProductDetail from "./screens/ProductDetail";
 import Success from "./screens/Success";
 import Favorite from "./screens/Favorite";
@@ -178,6 +179,12 @@ const App = () => {
             <Stack.Screen
               name="Success"
               component={Success}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="PaymentScreen"
+              component={PaymentScreen}
               options={{ headerShown: false }}
             />
 

@@ -206,21 +206,18 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
   },
+
   ContainerBotom: {
-    flexDirection: "row",
-    backgroundColor: "#DDDDDD",
-  },
-  ContainerBotom: {
-    flex: 1,
     backgroundColor: "#4B575B",
+    height: 80,
     marginHorizontal: 0, // Đặt giá trị marginHorizontal thành 0 để tràn ra hai bên
-    marginBottom: 10,
     shadowOpacity: 0.7,
     shadowOffset: {
       width: 0,
       height: 7,
     },
     alignItems: "center",
+    
   },
   ContainerBotomtxt: {
     fontSize: 26,
