@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     top: 40,
     left: 20,
     flex: 1,
+    marginTop :7,
   },
   maskGroupIcon: {
     top: 0,

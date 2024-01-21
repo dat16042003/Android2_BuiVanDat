@@ -7,8 +7,7 @@ import { GET_IMG } from "../api/apiService";
 
 const PaymentScreen = ({ navigation }) => {
   // Use the useCart hook to access cart data
-  const { cart } = useCart();
-
+  const { cart ,removeFromCart} = useCart();
   // Calculate the total amount to be paid
   const calculateTotal = () => {
     return cart
@@ -29,7 +28,9 @@ const PaymentScreen = ({ navigation }) => {
     setIsChecked2(!isChecked2);
   };
 
-  
+  const handleRemoveItem = (itemId) => {
+    removeFromCart(itemId); // Use removeFromCart here
+  };
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -67,6 +68,9 @@ const PaymentScreen = ({ navigation }) => {
               </Text>
 
             </View>
+            <View style={styles.ContainerMidBtn}>
+              <AntDesign onPress={() => handleRemoveItem(item.id)} name="closecircleo" size={24} color="black" />
+            </View>
           </View>
         ))}
       </View>
@@ -90,7 +94,7 @@ const PaymentScreen = ({ navigation }) => {
 
 
       {/* chọn phương thức thanh toán  */}
-      <View style={{ flex: 0.5, backgroundColor: "white" ,borderTopColor:"#ddd", borderTopWidth: 1 }}>
+      <View style={{ flex: 0.5, backgroundColor: "white", borderTopColor: "#ddd", borderTopWidth: 1 }}>
         <View
           style={{
             // borderTopWidth: 1,  // Add borderTop to separate total from cart items
@@ -145,7 +149,7 @@ const PaymentScreen = ({ navigation }) => {
                 <Icon
                   name={isChecked2 ? "checkbox-marked-circle" : "checkbox-blank-circle-outline"}
                   size={21}
-                  style={{ marginLeft: 70}}
+                  style={{ marginLeft: 70 }}
                   color="green"
                 />
               </TouchableOpacity>
@@ -172,7 +176,7 @@ const PaymentScreen = ({ navigation }) => {
           navigation.navigate("Success");
         }}
       >
-        <Text style={styles.paymentButtonText}>Proceed to Payment</Text>
+        <Text style={styles.paymentButtonText}>PROCEED TO PAYMENT</Text>
       </TouchableOpacity>
     </View>
   );
@@ -253,6 +257,7 @@ const styles = StyleSheet.create({
   paymentButtonText: {
     color: '#FFFFFF',
     fontSize: 18,
+    padding: 8,
     fontWeight: 'bold',
   },
   // Add your other styles here
@@ -277,9 +282,9 @@ const styles = StyleSheet.create({
   //thông tin đặt hàng
   userInfoContainer: {
     backgroundColor: 'white',
-    
+
     borderRadius: 8,
-    
+
   },
   userInfoTitle: {
     fontSize: 16.9,
